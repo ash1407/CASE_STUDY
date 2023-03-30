@@ -54,7 +54,7 @@ if (selected == 'Stock Price Prediction'):
         stock_prediction = Stock_price_model.predict([[news]])
         stock_price = current_price + stock_prediction
         
-    st.success('Stock_Price :',stock_price)
+    st.write('Stock_Price :', stock_price)
 
 
 
