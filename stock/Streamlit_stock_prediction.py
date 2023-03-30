@@ -6,13 +6,17 @@ Created on Sun May  8 21:01:15 2022
 """
 
 import pickle
+import json
 import streamlit as st
 from streamlit_option_menu import option_menu
 
 
 # loading the saved models
 
-Stock_price_model = pickle.load(open('/app/case_study/stock/model.json', 'r'))
+#Stock_price_model = pickle.load(open('/app/case_study/stock/model.json', 'r'))
+
+with open('/app/case_study/stock/model.json', 'r') as f:
+    Stock_price_model = json.load(f)
 
 
 
