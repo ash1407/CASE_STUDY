@@ -29,32 +29,31 @@ with st.sidebar:
                           default_index=0)
     
     
-# Diabetes Prediction Page
-if (selected == 'Stock Price Prediction'):
-    
-    # page title
-    st.title('Stock Price Prediction using ML')
-    
-    
-    # getting the input data from the user
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        current_price = float(st.text_input('Current Price'))
-        
-    with col2:
-        news = float(st.text_input('Current News Related to Stock'))
-    
-    
-    
-    
-    # creating a button for Prediction
-    
-    if st.button('Predicted Stock Price'):
-        stock_prediction = Stock_price_model.predict([[news]])
-        stock_price = current_price + stock_prediction
-        
-    st.write('Stock_Price :', stock_price)
+
+
+# page title
+st.title('Stock Price Prediction using ML')
+
+
+# getting the input data from the user
+col1, col2 = st.columns(2)
+
+with col1:
+    current_price = float(st.text_input('Current Price'))
+
+with col2:
+    news = float(st.text_input('Current News Related to Stock'))
+
+
+
+
+# creating a button for Prediction
+
+if st.button('Predicted Stock Price'):
+    stock_prediction = Stock_price_model.predict([[news]])
+    stock_price = current_price + stock_prediction
+
+st.write('Stock_Price :', stock_price)
 
 
 
