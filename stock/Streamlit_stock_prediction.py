@@ -15,8 +15,7 @@ from streamlit_option_menu import option_menu
 
 #Stock_price_model = pickle.load(open('/app/case_study/stock/model.json', 'r'))
 
-with open('/app/case_study/stock/model.json', 'r') as f:
-    Stock_price_model = json.load(f)
+Stock_price_model = json.loads(open('/app/case_study/stock/model.json', 'r').read())
 
 
 
@@ -41,10 +40,10 @@ if (selected == 'Stock Price Prediction'):
     col1, col2 = st.columns(2)
     
     with col1:
-        current_price = st.text_input('Current Price')
+        current_price = float(st.text_input('Current Price'))
         
     with col2:
-        news = st.text_input('Current News Related to Stock')
+        news = float(st.text_input('Current News Related to Stock'))
     
     
     
