@@ -49,12 +49,9 @@ if (selected == 'Stock Price Prediction'):
     
     
     
-    # code for Prediction
-    diab_diagnosis = ''
-    
     # creating a button for Prediction
     
-    if st.button('Diabetes Test Result'):
+    if st.button('Predicted Stock Price'):
         stock_prediction = Stock_price_model.predict([[news]])
         stock_price = current_price + stock_prediction
         
