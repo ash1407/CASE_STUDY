@@ -50,7 +50,7 @@ with col2:
 # creating a button for Prediction
 
 if st.button('Predicted Stock Price'):
-    stock_prediction = Stock_price_model.predict([[news]])
+    stock_prediction = Stock_price_model.predict([news])
     stock_price = current_price + stock_prediction
     st.sucess('Stock_Price :', stock_price)
 
