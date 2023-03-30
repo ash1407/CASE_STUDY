@@ -39,10 +39,10 @@ st.title('Stock Price Prediction using ML')
 col1, col2 = st.columns(2)
 
 with col1:
-    current_price = float(st.text_input('Current Price'))
+    current_price = st.text_input('Current Price')
 
 with col2:
-    news = float(st.text_input('Current News Related to Stock'))
+    news = st.text_input('Current News Related to Stock')
 
 
 
