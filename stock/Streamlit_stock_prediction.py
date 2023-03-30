@@ -12,7 +12,7 @@ from streamlit_option_menu import option_menu
 
 # loading the saved models
 
-Stock_price_model = pickle.load(open('model_tfidf.json', 'rb'))
+Stock_price_model = pickle.load(open('/app/case_study/stock/model_tfidf.json', 'rb'))
 
 
 
