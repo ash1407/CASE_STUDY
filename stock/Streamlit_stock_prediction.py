@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # loading the saved models
