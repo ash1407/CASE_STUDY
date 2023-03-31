@@ -11,8 +11,6 @@ with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
     tfidf = pickle.load(f)
     
 # Define a function to preprocess the text input
-def preprocess_text():
-	
 
 def preprocess_text():
     # Create the text input widget with the unique key
@@ -45,7 +43,6 @@ def app():
         # Predict final stock value
         stock_price = current_price + stock_prediction[0]
         
-
         # Display the prediction to the user
         st.write('Prediction:', stock_price)
 
