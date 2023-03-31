@@ -1,7 +1,9 @@
-import pickle
-import json
 import streamlit as st
 import numpy as np
+import pickle
+import xgboost as xgb
+import json
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # loading the saved models
 xgb_model = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
