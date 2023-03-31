@@ -28,13 +28,14 @@ def app():
     # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
     if st.button('Predict'):
         # Preprocess the text input
-        preprocessed_input = tfidf.transform([preprocess_text()])
+        #preprocessed_input = tfidf.transform([preprocess_text()])
 
         # Use the pre-trained model to make a prediction
-        stock_prediction = xgb_model.predict(preprocessed_input)
+        #stock_prediction = xgb_model.predict(preprocessed_input)
 
         # Predict final stock value
-        stock_price = current_price + stock_prediction[0]
+        #stock_price = current_price + stock_prediction[0]
+        stock_price=current_price + 3
 
         # Display the prediction to the user
         st.write('Prediction:', stock_price)
