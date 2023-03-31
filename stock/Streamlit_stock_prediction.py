@@ -7,8 +7,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 
 # loading the saved models
-xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
+#xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
 
+# Load the saved XGBoost model
+with open('/app/case_study/stock/model_tfidf.pickle', 'rb') as f:
+    xgb_model = pickle.load(f)
 
 
 # Load the pre-trained tf-idf vectorizer
