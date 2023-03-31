@@ -13,12 +13,10 @@ with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
 # Define a function to preprocess the text input
 def preprocess_text():
 	
-    # Create a unique key for each widget
-    news_key = "news_input_" 
 
     # Create the text input widget with the unique key
     #news = st.text_input("Current News Related to Stock", key=news_key)	
-    news = st.text_input('Current News Related to Stock',key=unique)
+    news = st.text_input('Current News Related to Stock',key=str)
     return news
 
 # Define the Streamlit apps
