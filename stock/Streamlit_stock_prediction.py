@@ -4,7 +4,8 @@ import streamlit as st
 import numpy as np
 
 # loading the saved models
-Stock_price_model = json.loads(open('/app/case_study/stock/model.json', 'r').read())
+xgb_model = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
+
 
 # Load the pre-trained tf-idf vectorizer
 with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
