@@ -47,7 +47,7 @@ def app():
         
         # Use the pre-trained model to make a prediction
         prediction = Stock_price_model.predict(input_array)
-		stock_price = current_price + stock_prediction
+	stock_price = current_price + stock_prediction
         
         # Display the prediction to the user
         st.write('Prediction:', prediction)
