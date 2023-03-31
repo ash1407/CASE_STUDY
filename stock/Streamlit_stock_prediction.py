@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun May  8 21:01:15 2022
-
-@author: siddhardhan
-"""
-
 import pickle
 import json
 import streamlit as st
@@ -16,8 +9,6 @@ from streamlit_option_menu import option_menu
 #Stock_price_model = pickle.load(open('/app/case_study/stock/model.json', 'r'))
 
 Stock_price_model = json.loads(open('/app/case_study/stock/model.json', 'r').read())
-
-
 
 # sidebar for navigation
 with st.sidebar:
@@ -34,45 +25,31 @@ with st.sidebar:
 # page title
 st.title('Stock Price Prediction using ML')
 
-
-# getting the input data from the user
-col1, col2 = st.columns(2)
-
-with col1:
+# Define a function to preprocess the text input
+def preprocess_text(text):
     current_price = st.text_input('Current Price')
+    return current_price
 
-with col2:
-    news = st.text_input('Current News Related to Stock')
-
-
-
-
-# creating a button for Prediction
-
-if st.button('Predicted Stock Price'):
-    st.sucess('Stock_Price :', news)
-    stock_prediction = Stock_price_model.predict([news])
-    stock_price = current_price + stock_prediction
-    #st.sucess('Stock_Price :', stock_price)
-    st.sucess('Stock_Price :', news)
-    #st.write('Stock_Price :', stock_price)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Define the Streamlit app
+def app():
+    
+    # Add a text input field for the user to enter their input
+    text_input = st.text_input('Enter your text input:')
+    
+    # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
+    if st.button('Predict'):
+        # Preprocess the text input
+        preprocessed_input = preprocess_text(text_input)
+        
+        # Convert the preprocessed input to a numpy array
+        input_array = np.array([preprocessed_input])
+        
+        # Use the pre-trained model to make a prediction
+        prediction = Stock_price_model.predict(input_array)
+        
+        # Display the prediction to the user
+        st.write('Prediction:', prediction)
+        
+# Run the app
+if __name__ == '__main__':
+    app()
