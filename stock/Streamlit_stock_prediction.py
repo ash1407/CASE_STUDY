@@ -50,7 +50,7 @@ def app():
 	stock_price = current_price + stock_prediction
         
         # Display the prediction to the user
-        st.write('Prediction:', prediction)
+        st.write('Prediction:', stock_price)
         
 # Run the app
 if __name__ == '__main__':
