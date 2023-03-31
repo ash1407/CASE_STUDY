@@ -4,6 +4,7 @@ import pickle
 import xgboost as xgb
 import json
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
 
 # loading the saved models
 xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
