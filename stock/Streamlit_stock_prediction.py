@@ -16,7 +16,7 @@ def preprocess_text():
 
     # Create the text input widget with the unique key
     #news = st.text_input("Current News Related to Stock", "")	
-    news = st.text_input('Current News Related to Stock',key=str)
+    news = st.text_input('Current News Related to Stock',"")
     return news
 
 # Define the Streamlit apps
