@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pickle
-import joblib
+import xgboost as xgb
 import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 
