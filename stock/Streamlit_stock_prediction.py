@@ -6,11 +6,9 @@ import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # loading the saved models
-Stock_price_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
+xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
 
-# Convert the dictionary object to XGBoost model object
-xgb_model = xgb.Booster()
-xgb_model.load_model_from_string(Stock_price_model['model'])
+
 
 # Load the pre-trained tf-idf vectorizer
 with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
