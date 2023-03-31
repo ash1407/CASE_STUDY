@@ -46,7 +46,7 @@ def app():
         input_array = np.array([preprocessed_input])
         
         # Use the pre-trained model to make a prediction
-        prediction = Stock_price_model.predict(input_array)
+        stock_prediction = Stock_price_model.predict(input_array)
 	stock_price = current_price + stock_prediction
         
         # Display the prediction to the user
