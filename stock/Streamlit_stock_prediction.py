@@ -14,10 +14,14 @@ with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
 def preprocess_text():
 	
 
+def preprocess_text():
     # Create the text input widget with the unique key
-    #news = st.text_input("Current News Related to Stock", "")	
     news = st.text_input('Current News Related to Stock')
-    return news
+    
+    # Preprocess the text input using the pre-trained tf-idf vectorizer
+    preprocessed_input = tfidf.transform([news])
+    
+    return preprocessed_input
 
 # Define the Streamlit apps
 def app():
@@ -33,7 +37,7 @@ def app():
     # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
     if st.button('Predict'):
         # Preprocess the text input
-        preprocessed_input = tfidf.transform([preprocess_text()])
+        #preprocessed_input = tfidf.transform([preprocess_text()])
         
         # Use the pre-trained model to make a prediction
         stock_prediction = xgb_model.predict(preprocessed_input)
