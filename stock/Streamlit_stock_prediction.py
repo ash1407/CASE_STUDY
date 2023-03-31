@@ -28,7 +28,8 @@ st.title('Stock Price Prediction using ML')
 # Define a function to preprocess the text input
 def preprocess_text(text):
     current_price = st.text_input('Current Price')
-    return current_price
+	news = st.text_input('Current News Related to Stock')
+    return current_price,news
 
 # Define the Streamlit app
 def app():
@@ -46,6 +47,7 @@ def app():
         
         # Use the pre-trained model to make a prediction
         prediction = Stock_price_model.predict(input_array)
+		stock_price = current_price + stock_prediction
         
         # Display the prediction to the user
         st.write('Prediction:', prediction)
