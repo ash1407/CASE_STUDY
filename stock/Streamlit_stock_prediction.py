@@ -70,3 +70,9 @@ def app():
 
         # Display the prediction to the user
         st.write('Prediction:', stock_price)
+        
+        
+# Run the Streamlit app
+if __name__ == '__main__':
+    app()
+        
