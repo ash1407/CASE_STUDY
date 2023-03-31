@@ -12,7 +12,7 @@ with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
     
 # Define a function to preprocess the text input
 def preprocess_text():
-    news = st.text_input('Current News Related to Stock')
+    news = st.text_input('Current News Related to Stock',key='news_key')
     return news
 
 # Define the Streamlit apps
