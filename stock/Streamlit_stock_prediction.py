@@ -12,6 +12,12 @@ with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
     
 # Define a function to preprocess the text input
 def preprocess_text():
+	
+    # Create a unique key for each widget
+    news_key = "news_input_" + str(uuid.uuid4())
+
+    # Create the text input widget with the unique key
+    #news = st.text_input("Current News Related to Stock", key=news_key)	
     news = st.text_input('Current News Related to Stock',key='news_key')
     return news
 
