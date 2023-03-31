@@ -27,11 +27,9 @@ def app():
         # Preprocess the text input
         preprocessed_input = preprocess_text()
 
-        # Convert the preprocessed input to a numpy array
-        input_array = np.array([preprocessed_input])
-
+        
         # Use the pre-trained model to make a prediction
-        stock_prediction = Stock_price_model.predict(input_array)
+        stock_prediction = Stock_price_model.predict(preprocessed_input)
 
         # Predict final stock value
         stock_price = current_price + stock_prediction
