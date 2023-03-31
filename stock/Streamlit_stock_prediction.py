@@ -7,7 +7,7 @@ import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # loading the saved models
-xgb_model = json.loads(open('/app/case_study/stock/model.json', 'r').read())
+xgb_model = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
 
 # Define a function to preprocess the text input
 def preprocess_text():
