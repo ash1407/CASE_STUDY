@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 #xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
 
 # Load the saved XGBoost model
-with open('/app/case_study/stock/model_tfidf.pickle', 'rb') as f:
+with open('/app/case_study/stock/model_tfidf.pickle', 'r') as f:
     xgb_model = pickle.load(f)
 
 
