@@ -14,7 +14,7 @@ def preprocess_text():
     news = st.text_input('Current News Related to Stock')
     return news
 
-# Define the Streamlit app
+# Define the Streamlit apps
 def app():
     # page title
     st.title('Stock Price Prediction using ML')
