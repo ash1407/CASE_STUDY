@@ -46,7 +46,7 @@ def app():
         #preprocessed_input = tfidf.transform([preprocess_text()])
         
         # Use the pre-trained model to make a prediction
-        stock_prediction = xgb_model.predict(preprocessed_input)
+        stock_prediction = xgb_model.predict(preprocess_text())
 
         # Predict final stock value
         stock_price = current_price + stock_prediction[0]
