@@ -13,7 +13,6 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 tokenizer = Tokenizer()
 
-
 # Load the tokenizer from a local file
 with open("/app/case_study/stock/tokenizer.pickle", "rb") as f:
     tokenizer = pickle.load(f) 
@@ -24,11 +23,7 @@ with open("/app/case_study/stock/xg_reg_model.pickle", "rb") as f:
     
 model = tf.keras.models.load_model("/app/case_study/stock/embedding_model.h5")
   
-
-
-    
 # Define a function to preprocess the text input
-
 def preprocess_text():
     # Create the text input widget with the unique key
     news = st.text_input('Current News Related to Stock')
@@ -43,31 +38,36 @@ def preprocess_text():
     
     return input_embedding
 
-# Define the Streamlit apps
+# Define the Streamlit app
 def app():
-    # page title
-    st.title('Stock Price Prediction using ML')
+    # Set the page title
+    st.set_page_config(page_title="Stock Price Prediction using ML")
 
-    # Text input
-    text= preprocess_text()
+    # Set the sidebar
+    st.sidebar.title("Stock Prediction App")
+    st.sidebar.write("Enter the current news and price to predict the stock price.")
 
-    # Numeric input
-    current_price = st.number_input('Current Price')
+    # Set the main content
+    st.title('Stock Price Prediction')
 
-    # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
+    # Create the input widgets
+    text_input = preprocess_text()
+    price_input = st.number_input('Enter the current price', value=100.0)
+
+    # Create the prediction button
     if st.button('Predict'):
         # Preprocess the text input
-        
-        # Use the pre-trained model to make a prediction
-        stock_prediction = xg_reg.predict(text.reshape(-1, 1))[0]
+        text_input_processed = xgb.DMatrix(text_input)
 
-        # Predict final stock value
-        stock_price = current_price + stock_prediction
-        
+        # Use the pre-trained model to make a prediction
+        stock_prediction = xg_reg.predict(text_input_processed)[0]
+
+        # Predict the final stock value
+        stock_price = price_input + stock_prediction
+
         # Display the prediction to the user
-        st.write('Prediction:', stock_price)
+        st.write('Predicted_stock_price:', stock_price)
 
 # Run the Streamlit app
 if __name__ == '__main__':
     app()
-	
