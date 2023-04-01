@@ -22,7 +22,7 @@ with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
 
 def preprocess_text():
     # Create the text input widget with the unique key
-    news = st.text_input('Current News Related to Stock')
+    news = st.text_input('Current News Related to Stock',key = "<uniquevalueofsomesort>")
     
     # Preprocess the text input using the pre-trained tf-idf vectorizer
     preprocessed_input = tfidf.transform([news])
