@@ -14,9 +14,16 @@ xgb_model = xgb.XGBRegressor(objective="reg:squarederror", n_estimators=100, see
 #xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
 xgb_model.load_model('/app/case_study/stock/model_tfidf.json')
 
-# Load the pre-trained tf-idf vectorizer
-with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
-    tfidf = pickle.load(f)
+
+
+
+# Load the tokenizer from a local file
+with open("/app/case_study/stock/tokenizer.pickle", "rb") as f:
+    tokenizer = pickle.load(f) 
+
+# Load the model from a local file
+with open("/app/case_study/stock/xg_reg_model.pickle", "rb") as f:
+    xg_reg = pickle.load(f)
     
 # Define a function to preprocess the text input
 
