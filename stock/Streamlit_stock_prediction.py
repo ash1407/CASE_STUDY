@@ -1,20 +1,28 @@
-import streamlit as st
-import numpy as np
 import pickle
-import xgboost as xgb
-import json
-from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, r2_score
+import xgboost as xgb
+import tensorflow as tf
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # loading the saved models
 
-
-xgb_model = xgb.XGBRegressor(objective="reg:squarederror", n_estimators=100, seed=123)
-#xg_reg.load_model("C:\\Users\\qj771f\\Desktop\\Boeing\\Resources\\4_ipynb files\\7_web app\\Streamlit\\stocks\\model_tfidf.json")
-#xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
-xgb_model.load_model('/app/case_study/stock/model_tfidf.json')
+tokenizer = Tokenizer()
 
 
+# Load the tokenizer from a local file
+with open("C:\\Users\\qj771f\\Desktop\\Boeing\\Resources\\4_ipynb files\\7_web app\\Streamlit\\stocks\\tokenizer.pickle", "rb") as f:
+    tokenizer = pickle.load(f) 
+
+# Load the model from a local file
+with open("C:\\Users\\qj771f\\Desktop\\Boeing\\Resources\\4_ipynb files\\7_web app\\Streamlit\\stocks\\xg_reg_model.pickle", "rb") as f:
+    xg_reg = pickle.load(f)
+    
+model = tf.keras.models.load_model("C:\\Users\\qj771f\\Desktop\\Boeing\\Resources\\4_ipynb files\\7_web app\\Streamlit\\stocks\\embedding_model.h5")
+  
 
 
 # Load the tokenizer from a local file
@@ -30,11 +38,16 @@ with open("/app/case_study/stock/xg_reg_model.pickle", "rb") as f:
 def preprocess_text():
     # Create the text input widget with the unique key
     news = st.text_input('Current News Related to Stock')
+
+    input_seq = tokenizer.texts_to_sequences([news])
+
+    # Pad the input sequence to match the maximum sequence length
+    input_seq = pad_sequences(input_seq,maxlen=21)
+
+    # Use the trained Word2Vec model to transform the input sequence
+    input_embedding = model.predict(input_seq)
     
-    # Preprocess the text input using the pre-trained tf-idf vectorizer
-    preprocessed_input = tfidf.transform([news])
-    
-    return preprocessed_input
+    return input_embedding
 
 # Define the Streamlit apps
 def app():
@@ -53,7 +66,7 @@ def app():
         #preprocessed_input = tfidf.transform([preprocess_text()])
         
         # Use the pre-trained model to make a prediction
-        stock_prediction = xgb_model.predict(text)
+        stock_prediction = xg_reg.predict(input_embedding.reshape(-1, 1))[0]
 
         # Predict final stock value
         stock_price = current_price + stock_prediction[0]
