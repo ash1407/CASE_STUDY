@@ -1,6 +1,6 @@
 numpy==1.21.4
-pip install click==7.1.2
 tensorflow==2.5.0
+pip install click==7.1.2
 pickle-mixin==1.0.2
 streamlit==1.2.0
 streamlit-option-menu==0.3.2
