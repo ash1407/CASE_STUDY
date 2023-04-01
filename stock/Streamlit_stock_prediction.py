@@ -9,10 +9,10 @@ from sklearn.model_selection import train_test_split
 # loading the saved models
 
 
-xg_reg = xgb.XGBRegressor(objective="reg:squarederror", n_estimators=100, seed=123)
+xgb_model = xgb.XGBRegressor(objective="reg:squarederror", n_estimators=100, seed=123)
 #xg_reg.load_model("C:\\Users\\qj771f\\Desktop\\Boeing\\Resources\\4_ipynb files\\7_web app\\Streamlit\\stocks\\model_tfidf.json")
 #xgb_model  = json.loads(open('/app/case_study/stock/model_tfidf.json', 'r').read())
-xg_reg.load_model('/app/case_study/stock/model_tfidf.json')
+xgb_model.load_model('/app/case_study/stock/model_tfidf.json')
 
 # Load the pre-trained tf-idf vectorizer
 with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
