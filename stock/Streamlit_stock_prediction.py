@@ -24,6 +24,16 @@ with open("/app/case_study/stock/xg_reg_model.pickle", "rb") as f:
     
 model = tf.keras.models.load_model("/app/case_study/stock/embedding_model.h5")
   
+# sidebar for navigation
+with st.sidebar:
+    
+    selected = option_menu('Stock Price Prediction',
+                          
+                          ['Stock Prediction'],
+                          icons=['activity'],
+                          default_index=0)
+    
+    
 
 
     
