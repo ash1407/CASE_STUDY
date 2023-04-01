@@ -1,5 +1,4 @@
 numpy==1.19.2
-tensorflow==2.5.0
 pip uninstall click==8.0.0
 pickle-mixin==1.0.2
 click==7.1.2
