@@ -25,13 +25,6 @@ model = tf.keras.models.load_model("/app/case_study/stock/embedding_model.h5")
   
 
 
-# Load the tokenizer from a local file
-with open("/app/case_study/stock/tokenizer.pickle", "rb") as f:
-    tokenizer = pickle.load(f) 
-
-# Load the model from a local file
-with open("/app/case_study/stock/xg_reg_model.pickle", "rb") as f:
-    xg_reg = pickle.load(f)
     
 # Define a function to preprocess the text input
 
