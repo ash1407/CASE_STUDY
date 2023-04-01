@@ -57,9 +57,7 @@ def app():
     # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
     if st.button('Predict'):
         # Preprocess the text input
-        #preprocessed_input = tfidf.transform([preprocess_text()])
-	
-	input=preprocess_text()
+        input=preprocess_text()
         
         # Use the pre-trained model to make a prediction
         stock_prediction = xg_reg.predict(input.reshape(-1, 1))[0]
