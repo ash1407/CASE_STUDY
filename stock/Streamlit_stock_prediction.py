@@ -22,7 +22,7 @@ with open('/app/case_study/stock/tfidf.pickle', 'rb') as f:
 
 def preprocess_text():
     # Create the text input widget with the unique key
-    news = st.text_input('Current News Related to Stock',key = "<uniquevalueofsomesort>")
+    news = st.text_input('Current News Related to Stock')
     
     # Preprocess the text input using the pre-trained tf-idf vectorizer
     preprocessed_input = tfidf.transform([news])
@@ -35,7 +35,7 @@ def app():
     st.title('Stock Price Prediction using ML')
 
     # Text input
-    text_input = preprocess_text()
+    text= preprocess_text()
 
     # Numeric input
     current_price = st.number_input('Current Price')
@@ -46,7 +46,7 @@ def app():
         #preprocessed_input = tfidf.transform([preprocess_text()])
         
         # Use the pre-trained model to make a prediction
-        stock_prediction = xgb_model.predict(preprocess_text())
+        stock_prediction = xgb_model.predict(text)
 
         # Predict final stock value
         stock_price = current_price + stock_prediction[0]
