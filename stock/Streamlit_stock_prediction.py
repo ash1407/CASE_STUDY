@@ -62,7 +62,7 @@ def app():
         stock_prediction = xg_reg.predict(text.reshape(-1, 1))[0]
 
         # Predict final stock value
-        stock_price = current_price + stock_prediction[0]
+        stock_price = current_price + stock_prediction
         
         # Display the prediction to the user
         st.write('Prediction:', stock_price)
