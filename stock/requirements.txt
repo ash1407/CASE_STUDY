@@ -4,5 +4,4 @@ streamlit==1.2.0
 streamlit-option-menu==0.3.2
 scikit-learn==1.0.1
 xgboost==1.5.0
-pip install click==7.1.2
-tensorflow==2.2.0
+tensorflow==2.5.0
