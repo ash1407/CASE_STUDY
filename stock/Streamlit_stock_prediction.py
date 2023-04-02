@@ -34,7 +34,7 @@ def preprocess_text():
     input_seq = tokenizer.texts_to_sequences([news])
 
     # Pad the input sequence to match the maximum sequence length
-    input_seq = pad_sequences(input_seq,maxlen=21)
+    input_seq = pad_sequences(input_seq,maxlen=227)
 
     # Use the trained Word2Vec model to transform the input sequence
     input_embedding = model.predict(input_seq)
