@@ -59,13 +59,15 @@ def preprocess_text():
 def app():
     # page title
     st.title('Stock Price Prediction using ML')
+    
+    st.subheader('The ML model below uses Word2Vec and TF-IDF to predict stock prices. To ensure that the semantic meaning of words does not affect the prediction, it also utilizes the glove.6B.100d file.')
 
     # Text input title
-    st.subheader('Enter news related to the stock')
+    
     text = preprocess_text()
 
     # Numeric input title
-    st.subheader('Enter current stock price')
+   
     current_price = st.number_input('Current stock price')
 
     # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
