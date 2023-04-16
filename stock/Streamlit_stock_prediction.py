@@ -81,6 +81,8 @@ def app():
         # Display the prediction to the user
         st.subheader('Predicted stock price')
         st.write(stock_price)
+        
+        st.subheader('Data generation was done using Chat GPT on multiple stock market scenarios. The resulting dataset contained 1000 data points that covered a wide range of market scenarios. This dataset was then used to train the ML model using the above-mentioned methods, which included Word2Vec and TF-IDF. To ensure that the semantic meaning of words did not affect the prediction, the model also utilized the glove.6B.100d file.')  
 
 # Run the Streamlit app
 if __name__ == '__main__':
