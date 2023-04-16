@@ -12,6 +12,9 @@ import streamlit as st
 import xgboost as xgb
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+
+vectorizer = TfidfVectorizer()
+
 # loading the saved models
 xg_reg = xgb.XGBRegressor(objective="reg:squarederror", n_estimators=100, seed=123)
 
