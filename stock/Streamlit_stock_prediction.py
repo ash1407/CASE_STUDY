@@ -46,7 +46,7 @@ def preprocess_text():
     embeddings1 = model.predict(X1)
     
     # Transform the text to numeric vectors using tf-idf
-    X_tfidf = vectorizer.transform([input_text]).toarray()
+    X_tfidf = vectorizer.transform([news]).toarray()
     
     # Concatenate the two sets of embeddings
     embeddings = np.concatenate([embeddings1, X_tfidf], axis=1)
@@ -62,12 +62,12 @@ def app():
     text = preprocess_text()
 
     # Numeric input
-    current_price = st.number_input('Current Price')
+    current_price = st.number_input('Curret stock Price')
 
     # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
     if st.button('Predict'):
         # Use the pre-trained model to make a prediction
-        stock_prediction = xg_reg.predict(text.reshape(1,-1))
+        stock_prediction = xg_reg.predict(text)
 
         # Predict final stock value
         stock_price = current_price + (stock_prediction[0]/100)*current_price 
