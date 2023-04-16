@@ -63,7 +63,9 @@ def app():
 
     # Text input
     text = preprocess_text()
-
+    
+    st.subheader('Enter news related to the stock')
+    
     # Numeric input
     current_price = st.number_input('Curret stock Price')
 
