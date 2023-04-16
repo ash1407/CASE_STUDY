@@ -56,18 +56,17 @@ def preprocess_text():
     
     return embeddings
 
-# Define the Streamlit app
 def app():
     # page title
     st.title('Stock Price Prediction using ML')
 
-    # Text input
-    text = preprocess_text()
-    
+    # Text input title
     st.subheader('Enter news related to the stock')
-    
-    # Numeric input
-    current_price = st.number_input('Curret stock Price')
+    text = preprocess_text()
+
+    # Numeric input title
+    st.subheader('Enter current stock price')
+    current_price = st.number_input('Current stock price')
 
     # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
     if st.button('Predict'):
@@ -78,7 +77,8 @@ def app():
         stock_price = current_price + (stock_prediction[0]/100)*current_price 
         
         # Display the prediction to the user
-        st.write('Prediction:', stock_price)
+        st.subheader('Predicted stock price')
+        st.write(stock_price)
 
 # Run the Streamlit app
 if __name__ == '__main__':
