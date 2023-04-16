@@ -28,7 +28,10 @@ with open("/app/case_study/stock/xg_reg_model.pickle", "rb") as f:
 
 with open("/app/case_study/stock/X_tfidf.pickle", "rb") as f:
     X_tfidf=pickle.load(f)
-    
+ 
+with open("/app/case_study/stock/vectorizer.pickle", "rb") as f:
+    vectorizer=pickle.load(f)
+
 
 # Load the pre-trained model
 model = tf.keras.models.load_model("/app/case_study/stock/embedding_model.h5")
