@@ -60,7 +60,7 @@ def app():
     # page title
     st.title('Stock Price Prediction using ML')
     
-    st.subheader('The ML model below uses Word2Vec and TF-IDF to predict stock prices. To ensure that the semantic meaning of words does not affect the prediction, it also utilizes the glove.6B.100d file.')
+   st.subheader('Data generation was done using Chat GPT on multiple stock market scenarios. The resulting dataset contained 1000 data points that covered a wide range of market scenarios. This dataset was then used to train the ML model using the above-mentioned methods, which included Word2Vec and TF-IDF. To ensure that the semantic meaning of words did not affect the prediction, the model also utilized the glove.6B.100d file.')
 
     # Text input title
     
@@ -82,7 +82,7 @@ def app():
         st.subheader('Predicted stock price')
         st.write(stock_price)
         
-        st.subheader('Data generation was done using Chat GPT on multiple stock market scenarios. The resulting dataset contained 1000 data points that covered a wide range of market scenarios. This dataset was then used to train the ML model using the above-mentioned methods, which included Word2Vec and TF-IDF. To ensure that the semantic meaning of words did not affect the prediction, the model also utilized the glove.6B.100d file.')  
+          
 
 # Run the Streamlit app
 if __name__ == '__main__':
