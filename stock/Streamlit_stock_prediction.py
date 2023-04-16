@@ -1,11 +1,15 @@
-import streamlit as st
-import numpy as np
 import pickle
+import numpy as np
+import pandas as pd
+import streamlit as st
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, r2_score
 import xgboost as xgb
-import json
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from gensim.models import Word2Vec
+import tensorflow as tf
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import streamlit as st
+import xgboost as xgb
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # loading the saved models
