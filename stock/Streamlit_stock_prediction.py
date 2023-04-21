@@ -92,7 +92,7 @@ def app():
 
         # Display the predicted stock price to the user
         st.subheader('Predicted stock price:')
-        st.write("${:,.2f}".format(stock_price))
+        st.write("RS{:,.2f}".format(stock_price))
 
 # Run the Streamlit app
 if __name__ == '__main__':
