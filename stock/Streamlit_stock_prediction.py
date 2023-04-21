@@ -56,46 +56,43 @@ def preprocess_text():
     
     return embeddings
 
-def app():
-    # page title
-    st.title('Stock Price Prediction using ML')
-    
-    #st.subheader('Data generation was done using Chat GPT on multiple stock market scenarios. The resulting dataset contained 1000 data points that covered a wide range of market scenarios. This dataset was then used to train the ML model using the above-mentioned methods, which included Word2Vec and TF-IDF. To ensure that the semantic meaning of words did not affect the prediction, the model also utilized the glove.6B.100d file.')
+import streamlit as st
+import matplotlib.pyplot as plt
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = ['Roboto']
 
-    # Text input title
-    
+# Define Streamlit app
+def app():
     text = preprocess_text()
 
     # Numeric input title
-   
-    current_price = st.number_input('Current stock price')
+    current_price = st.number_input('Enter current stock price:')
 
     # When the user clicks the 'Predict' button, preprocess the input and pass it to the model
     if st.button('Predict'):
+
         # Use the pre-trained model to make a prediction
         stock_prediction = xg_reg.predict(text)
-        
+
         # Display the prediction to the user
-        st.subheader('Percentage change in current stock Price will Be : ')
-        st.write(float(stock_prediction))
-        
+        st.subheader('Percentage change in current stock price will be:')
+        st.write("{:.2f}%".format(float(stock_prediction)))
+
         # Display whether the predicted stock price is negative or positive
-        st.subheader('Predicted stock price will increase or decrease :')
+        st.subheader('Predicted change in stock price:')
         if stock_prediction[0] > 0:
-            st.write('The stock price will Increase.')
+            st.write('The stock price will increase.')
         elif stock_prediction[0] < 0:
-            st.write('The stock price will Decrease.')
+            st.write('The stock price will decrease.')
         else:
             st.write('The predicted stock price is unchanged.')
 
         # Predict final stock value
         stock_price = current_price + (stock_prediction[0]/100)*current_price 
-        
-        # Display the prediction to the user
-        st.subheader('Predicted stock price')
-        st.write(stock_price)
-        
-          
+
+        # Display the predicted stock price to the user
+        st.subheader('Predicted stock price:')
+        st.write("${:,.2f}".format(stock_price))
 
 # Run the Streamlit app
 if __name__ == '__main__':
