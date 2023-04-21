@@ -64,6 +64,13 @@ plt.rcParams['font.sans-serif'] = ['Roboto']
 # Define Streamlit app
 def app():
     
+    
+    # Add a sidebar to the app
+    st.sidebar.header("Related Links")
+    st.sidebar.markdown("[MoneyControl](https://www.moneycontrol.com/)")
+    st.sidebar.markdown("[EconomicTimes](https://economictimes.indiatimes.com/markets)")
+    
+    
     # page title
     st.title('Stock Price Prediction using ML')
     
