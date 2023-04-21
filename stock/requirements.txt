@@ -5,7 +5,7 @@ streamlit==1.2.0
 streamlit-option-menu==0.3.2
 scikit-learn==1.0.1
 xgboost==1.5.0
-tensorflow 
+tensorflow==2.7.0
 #pip install matplotlib
 matplotlib
 
