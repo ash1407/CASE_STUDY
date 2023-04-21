@@ -63,6 +63,14 @@ plt.rcParams['font.sans-serif'] = ['Roboto']
 
 # Define Streamlit app
 def app():
+    
+    # page title
+    st.title('Stock Price Prediction using ML')
+    
+    # Set the sidebar
+    st.sidebar.title("Stock Prediction App")
+    st.sidebar.write("Enter the current news and price to predict the stock price.")
+    
     text = preprocess_text()
 
     # Numeric input title
