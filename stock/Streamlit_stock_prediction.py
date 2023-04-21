@@ -66,7 +66,7 @@ def app():
     
     
     # Add a sidebar to the app
-    st.sidebar.header("Related Links")
+    st.sidebar.header("Stocks News Related Links")
     st.sidebar.markdown("[MoneyControl](https://www.moneycontrol.com/)")
     st.sidebar.markdown("[EconomicTimes](https://economictimes.indiatimes.com/markets)")
     st.sidebar.markdown("[CNBC](https://www.cnbc.com/)")
