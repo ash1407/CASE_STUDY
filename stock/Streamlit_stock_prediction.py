@@ -69,6 +69,16 @@ def app():
     st.sidebar.header("Related Links")
     st.sidebar.markdown("[MoneyControl](https://www.moneycontrol.com/)")
     st.sidebar.markdown("[EconomicTimes](https://economictimes.indiatimes.com/markets)")
+    st.sidebar.markdown("[CNBC](https://www.cnbc.com/)")
+    st.sidebar.markdown("[Bloomberg](https://www.bloomberg.com/)")
+    st.sidebar.markdown("[Reuters](https://www.reuters.com/)")
+    st.sidebar.markdown("[MarketWatch](https://www.marketwatch.com/)")
+    st.sidebar.markdown("[Yahoo Finance](https://finance.yahoo.com/)")
+    st.sidebar.markdown("[The Wall Street Journal](https://www.wsj.com/)")
+    st.sidebar.markdown("[Seeking Alpha](https://seekingalpha.com/)")
+    st.sidebar.markdown("[The Street](https://www.thestreet.com/)")
+    st.sidebar.markdown("[Benzinga](https://www.benzinga.com/)")
+    st.sidebar.markdown("[Investopedia](https://www.investopedia.com/)")
     
     
     # page title
