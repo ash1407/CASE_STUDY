@@ -74,6 +74,10 @@ def app():
     if st.button('Predict'):
         # Use the pre-trained model to make a prediction
         stock_prediction = xg_reg.predict(text)
+        
+        # Display the prediction to the user
+        st.subheader('Percentage change in stock Price will Be : ')
+        st.write(stock_prediction)
 
         # Predict final stock value
         stock_price = current_price + (stock_prediction[0]/100)*current_price 
