@@ -76,14 +76,14 @@ def app():
         stock_prediction = xg_reg.predict(text)
         
         # Display the prediction to the user
-        st.subheader('Percentage change in stock Price will Be : ')
+        st.subheader('Percentage change in current stock Price will Be : ')
         st.write(float(stock_prediction))
         
         # Display whether the predicted stock price is negative or positive
         st.subheader('Predicted stock price will increase or decrease :')
-        if stock_prediction[0] < 0:
+        if stock_prediction[0] > 0:
             st.write('The stock price will Increase.')
-        elif stock_prediction[0] > 0:
+        elif stock_prediction[0] < 0:
             st.write('The stock price will Decrease.')
         else:
             st.write('The predicted stock price is unchanged.')
